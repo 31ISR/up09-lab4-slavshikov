@@ -8,6 +8,22 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Посты</h1>
+    {% block title %} Posts {% endblock %}  <!--Удалена строка с layout.html тк с ней не робит + доделана до warning
+    а то тупой и забудешь-->
+    {% block content %}
+    <section>
+        <h1>Posts</h1>
+        <a href="{% url 'posts' %}">Все посты</a>
+
+    
+        {% for post in posts %}
+        <article class="post">
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.date }}</p>
+            <p>{{ post.body }}</p>
+        </article>
+        {% endfor %}
+    </section>
+    {% endblock %}
 </body>
 </html>

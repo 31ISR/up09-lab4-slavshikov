@@ -8,6 +8,20 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Сообщества</h1>
+    {% block title %} Communities {% endblock %}
+{% block content %}
+<section>
+    <h1>Сommunities</h1>
+    <a href="{% url 'communities' %}">Все Сообщества</a> <!--Удалена строка с layout.html тк с ней не робит-->
+
+    {% for Сommunities in communities %}
+    <article class="Сommunities">
+        <h2>{{ Communities.title }}</h2>
+        <p>{{ Сommunities.date }}</p>
+        <p>{{ Сommunities.body }}</p>
+    </article>
+    {% endfor %}
+</section>
+{% endblock %}
 </body>
 </html>
