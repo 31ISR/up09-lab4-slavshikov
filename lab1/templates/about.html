@@ -1,3 +1,8 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Обо мне
+{% endblock %}
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
@@ -8,7 +13,9 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Страница обо мне</h1>
+    {% block content %}
+    <h1>Обо мне</h1>
+    {% endblock %}
 </body>
 <script src="{% static 'js/script.js' %}"></script>
 </html>

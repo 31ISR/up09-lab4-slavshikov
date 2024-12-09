@@ -1,3 +1,8 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Главная страница
+{% endblock %}
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
@@ -8,7 +13,10 @@
     <title>Document</title>
 </head>
 <body>
+
+{% block content %}
     <h1>Главная страница</h1>
+    {% endblock %}
     <div>
         
     </div>

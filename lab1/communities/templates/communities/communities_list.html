@@ -1,3 +1,5 @@
+{% extends 'layout.html' %} {% block title %} Communities {% endblock %}
+{% block content %}
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
@@ -8,8 +10,6 @@
     <title>Document</title>
 </head>
 <body>
-    {% block title %} Communities {% endblock %}
-{% block content %}
 <section>
     <h1>Сommunities</h1>
     <a href="{% url 'communities' %}">Все Сообщества</a> <!--Удалена строка с layout.html тк с ней не робит-->

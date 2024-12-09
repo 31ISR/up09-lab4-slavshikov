@@ -7,5 +7,4 @@ class Communities(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     free = models.BooleanField(default=True)
 
-    def __str__(self):
-        return self.title
+
