@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import Communities
+from .models import Communitie
 # Register your models here.
-admin.site.register(Communities)
+admin.site.register(Communitie)

@@ -1,27 +1,19 @@
-{% extends 'layout.html' %} {% block title %} Communities {% endblock %}
+{% extends 'layout.html' %} {% block title %} Communities {% endblock %} 
 {% block content %}
-<!DOCTYPE html>
-{% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    <title>Document</title>
-</head>
-<body>
 <section>
-    <h1>Сommunities</h1>
-    <a href="{% url 'communities' %}">Все Сообщества</a> <!--Удалена строка с layout.html тк с ней не робит-->
+  <h1>Сommunities</h1>
+  <a href="{% url 'communities:list' %}">Все Сообщества</a>
 
-    {% for Сommunities in communities %}
-    <article class="Сommunities">
-        <h2>{{ Communities.title }}</h2>
-        <p>{{ Сommunities.date }}</p>
-        <p>{{ Сommunities.body }}</p>
-    </article>
-    {% endfor %}
+  {% for communitie in communities %}
+  <article class="communitie">
+    <h2>
+      <a href="{%  url 'communities:page' slug=communitie.slug  %}">
+        {{ communitie.title }}
+      </a>
+    </h2>
+    <p>{{ communitie.date }}</p>
+    <p>{{ communitie.body }}</p>
+  </article>
+  {% endfor %}
 </section>
 {% endblock %}
-</body>
-</html>
