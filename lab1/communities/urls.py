@@ -5,5 +5,6 @@ app_name = 'communities'
 
 urlpatterns = [
     path('', views.communities_list, name="list"),
+    path('new-communities/', views.new_communities, name="new-communities"),
     path('<slug:slug>', views.communitie_page, name="page")
 ]
