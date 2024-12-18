@@ -1,0 +1,42 @@
+<!doctype html>
+{% load static %}
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{% block title %} Приложение Django {% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+        <script src="{% static 'js/main.js' %}" defer></script>
+    </head>
+    <body>
+        <nav>
+            <a href="/home">Главная страница</a>
+            <a href="/about">Обо мне</a>
+            <a href="{% url 'posts:list' %}">Посты</a>
+
+            <a href="{% url 'communities:list' %}">Группы</a>
+            {% if user.is_authenticated %}
+
+            <form class="logout" action="{% url 'users:logout' %}" method="post">
+                <a href="{% url 'posts:new-post' %}">Новый пост</a>
+
+                <a href="{% url 'communities:new-communities' %}">Новое сообщество</a>
+
+
+                {% csrf_token %}
+                <button class="button-logout" title="User Logout">Выйти</button>
+            </form>
+        {% else %}
+            <a href="{% url 'users:register' %}">
+                Зарегистрироваться
+            </a>
+            <a href="{% url 'users:login' %}" class="button-login">
+                Войти
+            </a>
+        {% endif %}
+                    
+        </nav>
+        <main>{% block content %} 
+            {% endblock %}</main>
+    </body>
+</html>
