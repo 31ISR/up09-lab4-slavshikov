@@ -24,13 +24,13 @@
 
 
                 {% csrf_token %}
-                <button class="logoutBtr" title="User Logout">Выйти</button>
+                <button class="button-logout" title="User Logout">Выйти</button>
             </form>
         {% else %}
             <a href="{% url 'users:register' %}">
                 Зарегистрироваться
             </a>
-            <a href="{% url 'users:login' %}">
+            <a href="{% url 'users:login' %}" class="button-login">
                 Войти
             </a>
         {% endif %}
