@@ -14,12 +14,11 @@ def communitie_page(request, slug):
 @login_required(login_url="/users/login/")
 def communities_new(request):
     if request.method == 'POST': 
-        form = forms.CreatePost(request.POST, request.FILES) 
+        form = forms.CreateCommunitie(request.POST, request.FILES) 
         if form.is_valid():
             newpost = form.save(commit=False) 
-            newpost.author = request.user 
             newpost.save()
             return redirect('communities:list')
     else:
-        form = forms.CreatePost()
+        form = forms.CreateCommunitie()
     return render(request, 'communities/communities_new.html', { 'form': form })

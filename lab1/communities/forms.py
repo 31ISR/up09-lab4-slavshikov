@@ -1,6 +1,6 @@
-from django import forms
-from .models import Communitie
-class CommunitieForm(forms.ModelForm):
+from django import forms 
+from . import models
+class CreateCommunitie(forms.ModelForm):
     class Meta:
-        model = Communitie
+        model = models.Communitie
         fields = ['title', 'description', 'slug', 'free', 'banner']
